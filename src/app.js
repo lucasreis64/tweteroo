@@ -24,6 +24,17 @@ app.post("/tweets", (req,res)=>{
     res.send(tweets)
 })
 
+app.get("/tweets", (req,res)=>{
+    const initialValue = tweets.length-1
+    const finalValue = tweets.length-11
+    const showTweets = []
+    for(let cont=initialValue; cont>finalValue; cont --) {
+        if(tweets[cont]===undefined) {}
+        else showTweets.push(tweets[cont])
+    }
+    res.send(showTweets)
+})
+
 app.listen(5000, ()=>{
     console.log('App running on https://localhost:5000')
 })
