@@ -27,6 +27,7 @@ app.post("/tweets", (req,res)=>{
 app.get("/tweets", (req,res)=>{
     const initialValue = tweets.length-1
     const finalValue = tweets.length-11
+    console.log(tweets, initialValue, finalValue)
     const showTweets = []
     for(let cont=initialValue; cont>finalValue; cont --) {
         if(tweets[cont]===undefined) {}
