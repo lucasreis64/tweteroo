@@ -48,7 +48,7 @@ app.get("/tweets/:user", (req,res)=>{
     const userName = req.params.user
 
     const tweetsUser = tweets.filter((t,idx)=>t.username===userName)
-
+    if(tweetsUser.length===0) {res.sendStatus(404);return}
     res.send(tweetsUser)
 })
 
