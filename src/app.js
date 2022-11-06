@@ -13,7 +13,7 @@ app.post("/sign-up", (req,res)=>{
         return
     }
     users.push(signUp)
-    res.send('OK')
+    res.status(201).send('OK')
 })
 
 app.post("/tweets", (req,res)=>{
@@ -29,7 +29,7 @@ app.post("/tweets", (req,res)=>{
         }
     })
 
-    res.send(tweets)
+    res.status(201).send('OK')
 })
 
 app.get("/tweets", (req,res)=>{
