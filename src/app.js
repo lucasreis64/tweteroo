@@ -44,6 +44,14 @@ app.get("/tweets", (req,res)=>{
     res.send(showTweets)
 })
 
+app.get("/tweets/:user", (req,res)=>{
+    const userName = req.params.user
+
+    const tweetsUser = tweets.filter((t,idx)=>t.username===userName)
+
+    res.send(tweetsUser)
+})
+
 app.listen(5000, ()=>{
     console.log('App running on https://localhost:5000')
 })
