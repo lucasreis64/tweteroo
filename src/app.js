@@ -8,12 +8,20 @@ app.use(json())
 
 app.post("/sign-up", (req,res)=>{
     const signUp = req.body
+    if (signUp.username==='' || signUp.avatar==='') {
+        res.status(400).send('Todos os campos são obrigatórios!')
+        return
+    }
     users.push(signUp)
     res.send('OK')
 })
 
 app.post("/tweets", (req,res)=>{
     const tweet = req.body
+    if (tweet.username==='' || tweet.tweet==='') {
+        res.status(400).send('Todos os campos são obrigatórios!')
+        return
+    }
     tweets.push(tweet)
     users.forEach((u,idx)=>{
         if(u.username===tweet.username){
